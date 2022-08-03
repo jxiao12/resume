@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<h1 class="d-flex justify-content-center align-items-center col-12" id="title_link">Welcome to Company!</h1>
+
+<div id="div1">
+	<ul>
+		<li><img src="static/css/image/img/aeonium-s.jpg"></li>
+		<li><img src="static/css/image/img/aloe-m.jpg"></li>
+		<li><img src="static/css/image/img/sedum-s.jpg"></li>
+        <li><img src="static/css/image/img/aloe-m.jpg"></li>
+		<li><img src="static/css/image/img/sedum-s.jpg"></li>
+		<div style="clear: none;"></div>
+	</ul>
+</div>
+
+<div class="d-flex justify-content-around" id="button_set">
+    <a id="left button" href="javascript:;">←</a>
+    <a id="right button" href="javascript:;">→</a>
+</div>
+
+
+<div class="">
+	<div>
+		{% if drys|length >= 1 %}
+		{% for dry in drys %}
+		<div class="row">
+			<a href="/show/{{dry.id}}">
+				<div>
+					<h1>{{dry.name}}</h1>
+				</div>
+				<h2>Type:</h2>
+				<h3>{{dry.type}}</h3>
+				<h3>Price: {{dry.cost}}</h3>
+				<h4># of Products: {{dry.quanlity}}</h4>
+			</a>
+			<a class="btn btn-primary" href="/purchase/{{dry.id}}" role="button">Purchase</a>
+			<a class="btn btn-primary" href="/addcart/{{dry.id}}" role="button">Add Cart</a>
+
+
+		</div>
+		
+		{% endfor %}
+		{% else %}
+		<h1>Sorry, there do not have anything, please wait!</h1>
+		{% endif %}
+	</div>
+
+	<div>
+		{% if freshs|length >= 1 %}
+		{% for fresh in freshs %}
+		<div class="row">
+			<div class="flex-column">
+				<h1>{{ fresh.name }}</h1>
+			</div>
+		</div>
+		{% endfor %}
+		{% else %}
+		<h1>Sorry, there do not have anything, please wait!</h1>
+		{% endif %}
+	</div>
+
+	<div>
+		{% if frozzen|length >= 1 %}
+		{% for frozzen in frozzens %}
+		<div class="row">
+			<div class="flex-column">
+				<h1>{{ frozzen.name }}</h1>
+			</div>
+		</div>
+		{% endfor %}
+		{% else %}
+		<h1>Sorry, there do not have anything, please wait!</h1>
+		{% endif %}
+	</div>
+</div>
+
+
+
+
+
+{% endblock %}

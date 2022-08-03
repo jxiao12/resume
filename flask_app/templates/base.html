@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+        <a class="navbar-brand" href="/"><img id="leaf" src="{{ url_for('static', filename='css/image/leaf.png') }}">&nbsp;Home Page</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="#">Something<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#">Link1</a>
+            <a class="nav-item nav-link" href="#">Link2</a>
+  
+            <!-- DROPDOWN MENU -->
+            <div class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbar-dropdown-menu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbar-dropdown-menu">
+                <a class="dropdown-item" href="https://www.google.com/">Google</a>
+                <a class="dropdown-item" href="https://github.com/">Github</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+  
+                <!-- Use this to separate a new link: -->
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Separated link</a>
+              </div>
+            </div>
+  
+  
+          </div> 
+
+          <div class="navbar-nav ml-auto">
+
+            {% if user is defined %}
+                <a class="nav-item nav-link" href="/dashboard" id="home_button">{{user.first_name}}  {{user.last_name}}'s home</a>
+                <a class="nav-item nav-link" href="/logout" class="btn btn-info" id="logout_button"><strong>Logout</strong></a>
+            {% else %}
+                <a class="nav-item nav-link" href="/user_login">Log In / Register</a>
+            {% endif %}
+          </div> 
+  
+        </div> 
+      </nav>
+      
+      {% block content %}
+
+      {% endblock %}
+
+
+</body>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src='static/js/general.js'></script>
+</html>

@@ -1,0 +1,41 @@
+#cart {
+    border: 2px solid black;
+    margin: 10px;
+}
+
+#history {
+    border: 2px solid black;
+    margin: 10px;
+}
+
+#menu ul {
+    margin: 5px;
+    padding: 5px;
+    list-style-type: none; 
+    line-height: 3em;
+}
+
+#menu a {
+    display: block; 
+    width: 10em;
+    height: 5em; 
+    text-align: center;
+    text-decoration: none;
+    background-color: #CCCCCC;
+}
+
+#menu a:hover {
+    background-color: #E6E6FA;
+}
+
+
+#account_box, #charge_box {
+    border: 2px solid black;
+    border-radius: 15px;
+}
+
+#button_time {
+    position:absolute;
+    bottom:5;
+    right:5;
+}
